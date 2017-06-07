@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ifeimo.im">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application>
+
+        <activity
+            android:name=".activity.ContactListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activity.TestActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+
+
+        <service android:name="com.ifeimo.im.service.LoginService" />
+        <service android:name="com.ifeimo.im.service.MsgService"/>
+        <provider
+            android:authorities="com.ifeimo.im.db.mucc"
+            android:name="com.ifeimo.im.provider.MuccProvider"
+            android:exported="false" />
+        <provider
+            android:authorities="com.ifeimo.im.db.chat"
+            android:name="com.ifeimo.im.provider.ChatProvider"
+            android:exported="false" />
+        <provider
+            android:authorities="com.ifeimo.im.db.cachemsglist"
+            android:name=".provider.CacheMsgListProvide"
+            android:exported="false"/>
+        <receiver android:name="com.ifeimo.im.receiver.ConnectReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.ifeimo.im.receiver.ConnectReceiver"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/muc_left_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <RelativeLayout
+                android:id="@+id/muc_left_face_layout"
+                android:layout_width="45dp"
+                android:background="#aaa"
+                android:layout_marginTop="5dp"
+                android:layout_height="45dp">
+
+                <com.ifeimo.im.view.RoundedImageView
+                    android:id="@+id/muc_left_face"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo_round"
+                    app:corner_radius="90dp"
+                    app:oval="false" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/id_unreandcount_tv"
+                android:layout_height="20dp"
+                android:layout_width="20dp"
+                android:layout_toLeftOf="@+id/muc_left_username"
+                android:text="1"
+                android:singleLine="true"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:textColor="#fff"
+                android:background="@drawable/shape_item_cache"
+                />
+
+            <TextView
+                android:id="@+id/muc_left_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/id_time_tv"
+                android:layout_toRightOf="@+id/muc_left_face_layout"
+                android:maxLines="1"
+                android:text="test2"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/muc_left_username"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@+id/muc_left_face_layout"
+                android:clickable="true">
+
+                <TextView
+                    android:id="@+id/muc_left_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:layout_alignParentBottom="true"
+                    android:text="----------"
+                    android:textColor="#b9b6b6"
+                    android:textSize="12dp" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/id_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="12:00123123123123"
+                android:textColor="#000"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

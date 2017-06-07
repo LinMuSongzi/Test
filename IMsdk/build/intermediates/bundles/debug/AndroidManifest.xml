@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ifeimo.im"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="25" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application>
+        <activity
+            android:name="com.ifeimo.im.activity.ContactListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.ifeimo.im.activity.TestActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <service android:name="com.ifeimo.im.service.LoginService" />
+        <service android:name="com.ifeimo.im.service.MsgService" />
+
+        <provider
+            android:name="com.ifeimo.im.provider.MuccProvider"
+            android:authorities="com.ifeimo.im.db.mucc"
+            android:exported="false" />
+        <provider
+            android:name="com.ifeimo.im.provider.ChatProvider"
+            android:authorities="com.ifeimo.im.db.chat"
+            android:exported="false" />
+        <provider
+            android:name="com.ifeimo.im.provider.CacheMsgListProvide"
+            android:authorities="com.ifeimo.im.db.cachemsglist"
+            android:exported="false" />
+
+        <receiver android:name="com.ifeimo.im.receiver.ConnectReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.ifeimo.im.receiver.ConnectReceiver" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
