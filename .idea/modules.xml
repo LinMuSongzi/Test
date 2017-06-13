@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/linframwork/linframwork.iml" filepath="$PROJECT_DIR$/linframwork/linframwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/okhttputils/okhttputils.iml" filepath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofit/retrofit.iml" filepath="$PROJECT_DIR$/retrofit/retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqlitesdk/sqlitesdk.iml" filepath="$PROJECT_DIR$/sqlitesdk/sqlitesdk.iml" />
     </modules>
   </component>
 </project>

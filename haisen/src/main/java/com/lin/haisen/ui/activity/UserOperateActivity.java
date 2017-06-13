@@ -34,8 +34,8 @@ public class UserOperateActivity extends BaseActivity {
     @Override
     protected void initView() {
         if(iBaseFragment != null) {
-            getFragmentManager().beginTransaction().add(R.id.id_content, iBaseFragment.getFragment());
             initToolBar(iBaseFragment.getT().getTitle());
+            getFragmentManager().beginTransaction().add(R.id.id_content, iBaseFragment.getFragment()).commit();
         }
     }
 

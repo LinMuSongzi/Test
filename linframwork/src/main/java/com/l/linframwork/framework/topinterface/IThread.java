@@ -15,7 +15,9 @@ public interface IThread extends IPosition{
     void execute(String key, IExecute runnable, ExecuteMode m);
     void execute(String key, IExecute runnable);
     void executeOnQueue(String key, IExecute runnable);
+    void executeOnQueue(String key,IExecute runnable,int time);
     void executeOnMainQueue(String key,IExecute runnable);
+    void executeOnMainQueue(String key,IExecute runnable,int time);
     enum ExecuteMode{
         TEMPORARY,
         POLL

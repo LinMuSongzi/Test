@@ -8,7 +8,7 @@ import android.support.multidex.MultiDex;
  */
 public class LibApplication extends Application implements Thread.UncaughtExceptionHandler {
 
-
+    public static final String MOB_API_KEY = "1e47c1e7361fe";
 
     @Override
     public void onCreate() {

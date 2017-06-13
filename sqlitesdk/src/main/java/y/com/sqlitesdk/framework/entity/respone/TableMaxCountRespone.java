@@ -1,11 +1,11 @@
 package y.com.sqlitesdk.framework.entity.respone;
 
-import y.com.sqlitesdk.framework.entity.BaseEntity;
+import y.com.sqlitesdk.framework.entity.BaseSqliteEntity;
 
 /**
  * Created by lpds on 2017/4/20.
  */
-public class TableMaxCountRespone extends BaseEntity {
+public class TableMaxCountRespone extends BaseSqliteEntity {
 
     private long maxCount;
 

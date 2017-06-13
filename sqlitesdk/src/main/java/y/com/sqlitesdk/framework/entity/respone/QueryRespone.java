@@ -2,13 +2,13 @@ package y.com.sqlitesdk.framework.entity.respone;
 
 import java.util.List;
 
-import y.com.sqlitesdk.framework.entity.BaseEntity;
+import y.com.sqlitesdk.framework.entity.BaseSqliteEntity;
 import y.com.sqlitesdk.framework.interface_model.IModel;
 
 /**
  * Created by lpds on 2017/4/15.
  */
-public class QueryRespone<T extends IModel<T>> extends BaseEntity {
+public class QueryRespone<T extends IModel<T>> extends BaseSqliteEntity {
     List<T> data;
     boolean isOk;
     String tableName;

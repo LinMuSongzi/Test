@@ -1,5 +1,6 @@
 package com.lin.haisen.util;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 
@@ -19,8 +20,9 @@ public class ActivityToggle {
     }
 
     public static final void startLoginActivity(Context activity){
-        Intent intent = new Intent(activity, UserOperateActivity.class);
+        Intent intent = new Intent();
         intent.putExtra(UserOperateActivity.ACTION,UserOperateActivity.LOGIN);
+        intent.setComponent(new ComponentName(activity,"com.lin.haisen.ui.activity.UserOperateActivity"));
         activity.startActivity(intent);
     }
 

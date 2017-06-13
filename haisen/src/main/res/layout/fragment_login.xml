@@ -22,6 +22,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/user_et"
             android:layout_width="match_parent"
             android:hint="UserName"
             android:layout_height="wrap_content" />
@@ -35,26 +36,33 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/password_et"
             android:layout_width="match_parent"
             android:hint="PassWord"
             android:layout_height="wrap_content" />
 
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.v7.widget.ButtonBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_height="wrap_content">
+        android:elevation="10dp"
+        android:layout_height="45dp">
 
         <android.support.v7.widget.AppCompatButton
+            android:id="@+id/id_login"
             android:layout_width="match_parent"
-            android:text="login"
-            android:layout_height="match_parent" />
+            android:text="Login"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
-    </android.support.v7.widget.ButtonBarLayout>
 
     <View android:layout_height="0dp"
         android:layout_weight="4"

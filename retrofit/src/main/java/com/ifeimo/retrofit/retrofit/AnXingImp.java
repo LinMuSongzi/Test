@@ -1,8 +1,11 @@
 package com.ifeimo.retrofit.retrofit;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.ifeimo.retrofit.App;
+import com.ifeimo.retrofit.activity.MainActivity;
 import com.ifeimo.retrofit.model.UserEntity;
 import com.l.linframwork.framework.entity.JsonEntity;
 import com.squareup.okhttp.Callback;
@@ -48,6 +51,7 @@ public class AnXingImp {
                     @Override
                     public void onCompleted() {
                         Log.i("onCompleted", "onCompleted: ");
+//                        App.application.startActivity(new Intent(App.application,MainActivity.class));
                     }
 
                     @Override

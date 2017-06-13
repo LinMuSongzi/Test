@@ -23,10 +23,8 @@ public abstract class BaseAlertDialog extends AlertDialog{
     private boolean isFirster = true;
     public BaseAlertDialog(@NonNull Context context) {
         super(context,0);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        Window window = getWindow();
-//        window.setBackgroundDrawableResource(android.R.color.transparent);
         createView();
+        initView(contentView);
     }
 
     private final void createView(){
@@ -39,7 +37,7 @@ public abstract class BaseAlertDialog extends AlertDialog{
         super.onCreate(savedInstanceState);
     }
 
-    protected abstract void initView(View v);
+    protected abstract void initView(View contentView);
 
     @Override
     public void onDetachedFromWindow() {
@@ -58,7 +56,6 @@ public abstract class BaseAlertDialog extends AlertDialog{
         if(isFirster) {
             isFirster = false;
             setContentView(contentView);
-            initView(contentView);
             Window window = getWindow();
             WindowManager manager = window.getWindowManager();
             Display display = manager.getDefaultDisplay();

@@ -1,13 +1,11 @@
 package y.com.sqlitesdk.framework.entity.respone;
 
-import android.widget.BaseAdapter;
-
-import y.com.sqlitesdk.framework.entity.BaseEntity;
+import y.com.sqlitesdk.framework.entity.BaseSqliteEntity;
 
 /**
  * Created by lpds on 2017/4/15.
  */
-public class TableCreateRespone extends BaseEntity {
+public class TableCreateRespone extends BaseSqliteEntity {
 
     private String tableName;
     private boolean isOk;

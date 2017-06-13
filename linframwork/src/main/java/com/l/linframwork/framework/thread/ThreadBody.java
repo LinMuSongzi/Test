@@ -40,16 +40,14 @@ public final class ThreadBody implements ILeave,Handler.Callback{
 
     @Override
     public void leave() {
-        synchronized (this) {
             this.executorService.shutdownNow();
             for(Integer what : mainHandlerRunnables){
-//                this.handler.removeMessages(what);
+                this.handler.removeMessages(what);
             }
             this.threadhandler.removeCallbacksAndMessages(null);
-
             this.executorService = null;
+            this.handler = null;
             this.threadhandler = null;
-        }
     }
 
     @Override
@@ -62,24 +60,31 @@ public final class ThreadBody implements ILeave,Handler.Callback{
 
 
     public void runAotuThread(IExecute runnable){
-        synchronized (this){
             executorService.execute(runnable);
-        }
     }
 
     public void runHandlerthread(IExecute runnable){
-        synchronized (this) {
             threadhandler.post(runnable);
-        }
     }
 
+    public void runHandlerthread(IExecute runnable,int time){
+            threadhandler.postDelayed(runnable,time);
+    }
+
+    public void runOnUiThread(IExecute runnable,int time){
+            Message message = new Message();
+            message.obj = runnable;
+            mainHandlerRunnables.add(runnable.hashCode());
+            handler.sendMessageDelayed(message,time);
+    }
+
+
+
     public void runOnUiThread(IExecute runnable){
-        synchronized (this) {
             Message message = new Message();
             message.obj = runnable;
             mainHandlerRunnables.add(runnable.hashCode());
             handler.sendMessage(message);
-        }
     }
 
 }

@@ -37,10 +37,6 @@ public class MainActivity extends BaseActivity {
 
     private TextView id_tv;
 
-    public String getKey(){
-        return MainActivity.this.hashCode()+"";
-    }
-
     @Override
     protected void initView() {
 //        setContentView(R.layout.activity_main);
@@ -87,32 +83,42 @@ public class MainActivity extends BaseActivity {
     }
 
     private void tesetthread() {
-        Proxy.getThread().executeOnQueue(getKey(), new IExecute() {
+        Proxy.getThread().execute(getKey(), new IExecute() {
+
+            Object o = this;
+
             @Override
             public void execute() {
+                System.err.println("************* execute 线程 run *********** ");
 
-                try {
-                    Thread.sleep(2500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Proxy.getThread().executeOnMainQueue(getKey(), new IExecute() {
-                    @Override
-                    public void execute() {
-                        Snackbar.make(id_tv,"----",1000).show();
-                        tesetthread();
+                synchronized (o) {
+                    notify();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            synchronized (o){
+                                notify();
+                                try {
+                                    wait(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }).start();
+
+                    try {
+                        wait(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                });
-
+                }
+                execute();
             }
         });
     }
 
-    @Override
-    protected void onDestroy() {
-        startActivity(new Intent(this,RegisterActivity.class));
-        super.onDestroy();
-    }
+
 
     @Override
     protected int getContentView() {
@@ -167,4 +173,8 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void beforeInit(Bundle bundle) {
+
+    }
 }

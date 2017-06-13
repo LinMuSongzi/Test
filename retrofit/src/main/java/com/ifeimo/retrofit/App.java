@@ -12,10 +12,12 @@ import android.util.Log;
 public class App extends Application implements Thread.UncaughtExceptionHandler {
     private static final String TAG = "App";
     public static String MOB_API;
+    public static Application application;
     @Override
     public void onCreate() {
         super.onCreate();
         ApplicationInfo appInfo = null;
+        application = this;
         try {
             appInfo = getPackageManager()
                     .getApplicationInfo(getPackageName(),

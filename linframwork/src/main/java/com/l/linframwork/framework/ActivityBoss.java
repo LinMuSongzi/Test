@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.l.linframwork.IEmployee;
 import com.l.linframwork.framework.activity.IActivity;
 import com.l.linframwork.framework.base.ILife;
+import com.l.linframwork.framework.topinterface.Link;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -14,7 +15,7 @@ import java.util.LinkedList;
 /**
  * Created by lpds on 2017/6/5.
  */
-final class ActivityBoss implements ILife,IEmployee {
+final class ActivityBoss implements ILife,IEmployee,Link {
 
     private ActivityBoss(){
         iActivitys = new LinkedList<>();
@@ -24,7 +25,7 @@ final class ActivityBoss implements ILife,IEmployee {
         activityBoss  = new ActivityBoss();
     }
 
-    public static ILife getInstances(){
+    public static Link getInstances(){
         return activityBoss;
     }
 
@@ -53,7 +54,7 @@ final class ActivityBoss implements ILife,IEmployee {
 
     @Override
     public void onDestrory(IActivity activity) {
-        iActivitys.remove(activity.hashCode());
+        iActivitys.remove(activity);
         EventBus.getDefault().unregister(activity);
         ThreadManager.getInstances().leaveThreadByPoolByKey(activity.getKey());
     }
@@ -80,5 +81,10 @@ final class ActivityBoss implements ILife,IEmployee {
 
     @Override
     public void init() {
+    }
+
+    @Override
+    public IActivity getLast() {
+        return iActivitys.getLast();
     }
 }

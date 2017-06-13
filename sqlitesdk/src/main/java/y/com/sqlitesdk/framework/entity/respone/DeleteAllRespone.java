@@ -1,11 +1,11 @@
 package y.com.sqlitesdk.framework.entity.respone;
 
-import y.com.sqlitesdk.framework.entity.BaseEntity;
+import y.com.sqlitesdk.framework.entity.BaseSqliteEntity;
 
 /**
  * Created by lpds on 2017/4/15.
  */
-public class DeleteAllRespone extends BaseEntity {
+public class DeleteAllRespone extends BaseSqliteEntity {
 
     boolean isOk;
 

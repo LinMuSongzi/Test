@@ -1,6 +1,5 @@
 package y.com.sqlitesdk.framework.entity.respone;
 
-import y.com.sqlitesdk.framework.entity.BaseEntity;
 import y.com.sqlitesdk.framework.entity.BaseIdEntity;
 import y.com.sqlitesdk.framework.interface_model.IModel;
 

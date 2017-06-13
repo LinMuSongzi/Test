@@ -1,6 +1,8 @@
 package com.lin.haisen.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.lin.haisen.R;
@@ -29,6 +31,7 @@ public class AppStartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
         mainUserDialog = new MainUserDialog(this).setOnClickLogin(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

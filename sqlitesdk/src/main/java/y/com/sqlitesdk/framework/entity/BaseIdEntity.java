@@ -3,7 +3,7 @@ package y.com.sqlitesdk.framework.entity;
 /**
  * Created by lpds on 2017/4/15.
  */
-public class BaseIdEntity extends BaseEntity {
+public class BaseIdEntity extends BaseSqliteEntity {
 
     protected long id = -1;
 

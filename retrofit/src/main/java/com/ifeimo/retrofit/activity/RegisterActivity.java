@@ -2,6 +2,7 @@ package com.ifeimo.retrofit.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
@@ -36,29 +37,24 @@ public class RegisterActivity extends BaseActivity {
     TextInputLayout id_password;
     @OnClick(R.id.id_register)
     public void register(){
-        if(TextUtils.isEmpty(id_user.getEditText().getText().toString().trim())
-               || id_user.getEditText().getText().toString().trim().length() < 6 ){
-            id_user.setError("用户名不少于6位");
-        }
-        if(TextUtils.isEmpty(id_password.getEditText().getText().toString().trim())
-                || id_password.getEditText().getText().toString().trim().length() < 6 ){
-            id_password.setError("密码不少于6位");
-        }
+//        if(TextUtils.isEmpty(id_user.getEditText().getText().toString().trim())
+//               || id_user.getEditText().getText().toString().trim().length() < 6 ){
+//            id_user.setError("用户名不少于6位");
+//        }
+//        if(TextUtils.isEmpty(id_password.getEditText().getText().toString().trim())
+//                || id_password.getEditText().getText().toString().trim().length() < 6 ){
+//            id_password.setError("密码不少于6位");
+//        }
 
 
+//        startActivity(new Intent(this,MainActivity.class));
 
-
-//        RequestManager.getInstances().register(getKey(),id_user.getEditText().getText().toString().trim(),
-//                id_password.getEditText().getText().toString().trim());
+        RequestManager.getInstances().register(getKey(),id_user.getEditText().getText().toString().trim(),
+                id_password.getEditText().getText().toString().trim());
 //        RequestManager.getInstances().baidu(getKey());
 
     }
 
-    @Override
-    protected void onDestroy() {
-        startActivity(new Intent(this,MainActivity.class));
-        super.onDestroy();
-    }
 
     private TextWatcher inputCheckWatcher = new TextWatcher() {
         @Override
@@ -108,5 +104,10 @@ public class RegisterActivity extends BaseActivity {
 
         id_user.getEditText().addTextChangedListener(inputCheckWatcher);
         id_password.getEditText().addTextChangedListener(inputCheckWatcher);
+    }
+
+    @Override
+    public void beforeInit(Bundle bundle) {
+
     }
 }

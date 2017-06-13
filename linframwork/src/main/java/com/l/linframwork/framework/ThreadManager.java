@@ -67,8 +67,9 @@ final class ThreadManager implements IThread {
     @Override
     public void leaveThreadByPoolByKey(String key) {
         synchronized (this){
-            if(key!=null && executorServices.containsKey(key)){
+            if(key != null && executorServices.containsKey(key)){
                 executorServices.get(key).leave();
+                executorServices.remove(key);
             }
         }
     }
@@ -77,7 +78,6 @@ final class ThreadManager implements IThread {
     public void execute(String key, IExecute runnable, ExecuteMode m) {
         switch (m){
             case POLL:
-//                createThreadPoolBykey(key);
                 executorServices.get(key).runAotuThread(runnable);
                 break;
             case TEMPORARY:
@@ -88,7 +88,7 @@ final class ThreadManager implements IThread {
 
     @Override
     public void execute(String key, IExecute runnable) {
-        execute(key,runnable,ExecuteMode.TEMPORARY);
+        execute(key,runnable,ExecuteMode.POLL);
     }
 
     @Override
@@ -99,9 +99,23 @@ final class ThreadManager implements IThread {
     }
 
     @Override
+    public void executeOnQueue(String key, IExecute runnable, int time) {
+        if(key != null && executorServices.containsKey(key)){
+            executorServices.get(key).runHandlerthread(runnable,time);
+        }
+    }
+
+    @Override
     public void executeOnMainQueue(String key, IExecute runnable) {
         if(key != null && executorServices.containsKey(key)){
             executorServices.get(key).runOnUiThread(runnable);
+        }
+    }
+
+    @Override
+    public void executeOnMainQueue(String key, IExecute runnable, int time) {
+        if(key != null && executorServices.containsKey(key)){
+            executorServices.get(key).runOnUiThread(runnable,time);
         }
     }
 

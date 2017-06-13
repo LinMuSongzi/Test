@@ -18,7 +18,7 @@ import rx.Observable;
  */
 public interface AnXing {
 
-   String PATH = "http://linhui.lizuolin.com";
+   String PATH = "https://linhui.lizuolin.com";
 
     @Headers({"Content-type:application/json","Content-Length:59"})
     @POST("/MrLin.svc/register1")

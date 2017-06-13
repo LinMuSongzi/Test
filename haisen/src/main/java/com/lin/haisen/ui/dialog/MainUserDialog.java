@@ -6,22 +6,24 @@ import android.view.View;
 
 import com.lin.haisen.R;
 
+import butterknife.Bind;
+
 /**
  * Created by lpds on 2017/6/10.
  */
 public class MainUserDialog extends BaseAlertDialog {
 
-    private View id_login_layout;
-    private View id_register_layout;
+    View id_login_layout;
+    View id_register_layout;
 
     public MainUserDialog(@NonNull Context context) {
         super(context);
     }
 
     @Override
-    protected void initView(View v) {
-        id_login_layout = v.findViewById(R.id.id_login_layout);
-        id_register_layout = v.findViewById(R.id.id_register_layout);
+    protected void initView(View contentView) {
+        id_login_layout = contentView.findViewById(R.id.id_login_layout);
+        id_register_layout = contentView.findViewById(R.id.id_register_layout);
     }
 
     public MainUserDialog setOnClickLogin(View.OnClickListener onClickLogin) {

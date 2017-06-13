@@ -2,6 +2,8 @@ package com.l.linframwork.framework;
 
 import com.l.linframwork.framework.base.ILife;
 import com.l.linframwork.framework.topinterface.IThread;
+import com.l.linframwork.framework.topinterface.Link;
+import com.l.linframwork.framework.topinterface.Request;
 
 /**
  * Created by lpds on 2017/6/6.
@@ -9,11 +11,11 @@ import com.l.linframwork.framework.topinterface.IThread;
 public class Proxy {
 
 
-    public static ILife getLifeManager(){
+    public static Link getActivityManager(){
         return ActivityBoss.getInstances();
     }
 
-    public static RequestManager getRequestManager(){
+    public static Request getRequestManager(){
         return RequestManager.getInstances();
     }
 
