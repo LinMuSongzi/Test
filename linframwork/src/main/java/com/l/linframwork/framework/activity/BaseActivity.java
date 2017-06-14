@@ -100,6 +100,7 @@ public abstract class BaseActivity  extends AppCompatActivity implements IActivi
         }
         return key;
 
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
