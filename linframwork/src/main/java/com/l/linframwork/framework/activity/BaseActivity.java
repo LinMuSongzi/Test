@@ -99,6 +99,7 @@ public abstract class BaseActivity  extends AppCompatActivity implements IActivi
             return key = String.valueOf(hashCode());
         }
         return key;
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
