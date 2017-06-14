@@ -1,7 +1,7 @@
 package com.l.linframwork.framework;
 
 
-import com.l.linframwork.framework.entity.RequestEntity;
+import com.l.linframwork.framework.data.RequestEntity;
 import com.l.linframwork.framework.topinterface.Request;
 import com.squareup.okhttp.OkHttpClient;
 

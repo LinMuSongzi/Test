@@ -31,7 +31,6 @@ public class AppStartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         mainUserDialog = new MainUserDialog(this).setOnClickLogin(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

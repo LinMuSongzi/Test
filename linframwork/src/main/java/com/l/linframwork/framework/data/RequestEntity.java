@@ -1,4 +1,4 @@
-package com.l.linframwork.framework.entity;
+package com.l.linframwork.framework.data;
 
 import retrofit.Retrofit;
 

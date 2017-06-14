@@ -1,19 +1,24 @@
 package com.lin.haisen.ui.fragment;
 
+
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.l.linframwork.framework.thread.IExecute;
 import com.lin.haisen.R;
 import com.lin.haisen.commont.BaseSubscriber;
 import com.lin.haisen.data.entity.UserEntity;
+import com.lin.haisen.data.respone.LoginRespone;
 import com.lin.haisen.request.imp.UserServiceImp;
-import com.lin.haisen.ui.popupwindow.PopupWindowFactory;
+import com.lin.haisen.ui.activity.UserInfoActivity;
 import com.lin.haisen.ui.fragment.support.IActionBar;
+import com.lin.haisen.ui.popupwindow.PopupWindowFactory;
 
 import y.com.sqlitesdk.framework.util.StringDdUtil;
 
@@ -54,7 +59,7 @@ public class LoginFragment extends BaseFragment<IActionBar> implements IActionBa
 
                         UserEntity userEntity = new UserEntity("aasd", user, password);
 
-                        UserServiceImp.login1(userEntity, new BaseSubscriber<JsonObject>(getIActivity()) {
+                        UserServiceImp.login1(userEntity, new BaseSubscriber<LoginRespone>(getIActivity()) {
 
                             @Override
                             public void onStart() {
@@ -63,26 +68,23 @@ public class LoginFragment extends BaseFragment<IActionBar> implements IActionBa
                             }
 
                             @Override
-                            protected void next(JsonObject s) {
-                                System.out.println("********* " + s + " ************");
+                            protected void next(LoginRespone s) {
+                                onEndRequest();
+                                if(!StringDdUtil.isNull(s.getKey())) {
+                                    v.getContext().startActivity(new Intent(getActivity(), UserInfoActivity.class));
+                                }
+                                getIActivity().showToast(s.getResult_msg());
                             }
 
                             @Override
                             protected void error(Throwable throwable) {
-                                try {
-                                    Thread.sleep(2000);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
                                 super.error(throwable);
                                 onEndRequest();
-
                             }
 
                             @Override
                             protected void completed() {
-                                onEndRequest();
-                                System.out.println("********* completed ************");
+
                             }
                         });
                     }

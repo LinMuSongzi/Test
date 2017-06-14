@@ -1,9 +1,6 @@
 package com.lin.haisen.data.entity;
 
-import com.google.gson.JsonObject;
-import com.l.linframwork.framework.entity.LibEntity;
-
-import rx.Subscriber;
+import com.l.linframwork.framework.data.LibEntity;
 
 /**
  * Created by lpds on 2017/6/13.

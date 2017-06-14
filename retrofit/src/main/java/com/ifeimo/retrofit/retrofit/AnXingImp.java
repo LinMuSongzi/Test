@@ -1,13 +1,10 @@
 package com.ifeimo.retrofit.retrofit;
 
-import android.content.Intent;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.ifeimo.retrofit.App;
-import com.ifeimo.retrofit.activity.MainActivity;
 import com.ifeimo.retrofit.model.UserEntity;
-import com.l.linframwork.framework.entity.JsonEntity;
+import com.l.linframwork.framework.data.JsonEntity;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;

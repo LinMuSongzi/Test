@@ -3,6 +3,7 @@ package com.lin.haisen.request;
 import com.google.gson.JsonObject;
 import com.l.linframwork.framework.anno.Path;
 import com.lin.haisen.data.entity.UserEntity;
+import com.lin.haisen.data.respone.LoginRespone;
 
 import retrofit.Call;
 import retrofit.http.Body;
@@ -27,7 +28,7 @@ public interface UserService {
 
     @Headers({"Content-type:application/json","Content-Length:59"})
     @POST("/MrLin.svc/login1")
-    Observable<JsonObject> loginByUser(@Body UserEntity requestBody);
+    Observable<LoginRespone> loginByUser(@Body UserEntity requestBody);
 
 
 

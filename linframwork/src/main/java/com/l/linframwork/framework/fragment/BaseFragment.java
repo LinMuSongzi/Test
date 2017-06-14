@@ -3,14 +3,12 @@ package com.l.linframwork.framework.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.l.linframwork.R;
 import com.l.linframwork.framework.activity.IActivity;
-import com.l.linframwork.framework.entity.EmptyEntity;
+import com.l.linframwork.framework.data.EmptyEntity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

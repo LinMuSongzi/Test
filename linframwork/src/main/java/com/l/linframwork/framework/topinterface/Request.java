@@ -1,7 +1,7 @@
 package com.l.linframwork.framework.topinterface;
 
 import com.l.linframwork.IEmployee;
-import com.l.linframwork.framework.entity.RequestEntity;
+import com.l.linframwork.framework.data.RequestEntity;
 
 /**
  * Created by lpds on 2017/6/6.

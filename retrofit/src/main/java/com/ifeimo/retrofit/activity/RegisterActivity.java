@@ -1,22 +1,19 @@
 package com.ifeimo.retrofit.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
 import com.ifeimo.retrofit.R;
-import com.ifeimo.retrofit.model.UserEntity;
 import com.ifeimo.retrofit.retrofit.RequestManager;
 import com.l.linframwork.framework.activity.BaseActivity;
-import com.l.linframwork.framework.entity.JsonEntity;
+import com.l.linframwork.framework.data.JsonEntity;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

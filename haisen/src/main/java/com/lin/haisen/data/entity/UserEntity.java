@@ -46,4 +46,13 @@ public class UserEntity extends BaseEntity {
         this.secretKey = secretKey;
     }
 
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", secretKey='" + secretKey + '\'' +
+                '}';
+    }
 }

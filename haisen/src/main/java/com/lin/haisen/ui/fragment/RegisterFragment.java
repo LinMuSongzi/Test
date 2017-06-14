@@ -1,5 +1,6 @@
 package com.lin.haisen.ui.fragment;
 
+import android.content.Intent;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +13,9 @@ import com.lin.haisen.R;
 import com.lin.haisen.commont.BaseSubscriber;
 import com.lin.haisen.data.entity.UserEntity;
 import com.lin.haisen.request.imp.UserServiceImp;
-import com.lin.haisen.ui.popupwindow.PopupWindowFactory;
+import com.lin.haisen.ui.activity.UserInfoActivity;
 import com.lin.haisen.ui.fragment.support.IActionBar;
+import com.lin.haisen.ui.popupwindow.PopupWindowFactory;
 
 import y.com.sqlitesdk.framework.util.StringDdUtil;
 
@@ -40,47 +42,51 @@ public class RegisterFragment extends BaseFragment<IActionBar> implements IActio
         (registerBotton = (Button)findViewById(R.id.id_register)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("onclick");
-                getIActivity().postThread(new IExecute() {
+                requestRegister();
+
+            }
+        });
+    }
+
+    private void requestRegister(){
+        getIActivity().postThread(new IExecute() {
+            @Override
+            public void execute() {
+
+                final String user = user_et.getText().toString();
+                final String password = password_et.getText().toString();
+                if(StringDdUtil.isNull(user) || StringDdUtil.isNull(password)){
+                    getIActivity().showToast("user or password is null values");
+                    return;
+                }
+
+                UserEntity userEntity = new UserEntity("1",user,password);
+
+                UserServiceImp.register(userEntity,new BaseSubscriber<JsonObject>(getIActivity()) {
                     @Override
-                    public void execute() {
-
-                        final String user = user_et.getText().toString();
-                        final String password = password_et.getText().toString();
-                        if(StringDdUtil.isNull(user) || StringDdUtil.isNull(password)){
-                            getIActivity().showToast("user or password is null values");
-                            return;
-                        }
-
-                        UserEntity userEntity = new UserEntity("1",user,password);
-
-                        UserServiceImp.register(userEntity,new BaseSubscriber<JsonObject>(getIActivity()) {
-                            @Override
-                            public void onStart() {
-                                super.onStart();
-                                onStartReuqtest();
-                            }
-
-                            @Override
-                            protected void error(Throwable throwable) {
-                                super.error(throwable);
-                                onEndRequest();
-                            }
-
-                            @Override
-                            protected void next(JsonObject s) {
-//                                System.out.println("********* "+s+" ************");
-
-                            }
-
-                            @Override
-                            protected void completed() {
-                                onEndRequest();
-//                                System.out.println("********* completed ************");
-                            }
-
-                        });
+                    public void onStart() {
+                        super.onStart();
+                        onStartReuqtest();
                     }
+
+                    @Override
+                    protected void error(Throwable throwable) {
+                        super.error(throwable);
+                        onEndRequest();
+                    }
+
+                    @Override
+                    protected void next(JsonObject s) {
+
+
+                    }
+
+                    @Override
+                    protected void completed() {
+                        onEndRequest();
+//                                System.out.println("********* completed ************");
+                    }
+
                 });
             }
         });

@@ -4,7 +4,6 @@ package com.l.linframwork.framework.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,8 +12,7 @@ import android.widget.Toast;
 
 import com.l.linframwork.framework.Proxy;
 import com.l.linframwork.framework.base.ILife;
-import com.l.linframwork.framework.entity.EmptyEntity;
-import com.l.linframwork.framework.entity.JsonEntity;
+import com.l.linframwork.framework.data.EmptyEntity;
 import com.l.linframwork.framework.thread.IExecute;
 
 import org.greenrobot.eventbus.Subscribe;
