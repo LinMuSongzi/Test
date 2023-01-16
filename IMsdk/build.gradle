@@ -3,7 +3,6 @@ apply plugin: 'com.android.library'
 android {
 
     compileSdkVersion 22
-    buildToolsVersion '23.0.3'
 
     defaultConfig {
         minSdkVersion 18
@@ -22,17 +21,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
-    compile 'org.igniterealtime.smack:smack-android-extensions:4.1.8'
-    compile 'org.igniterealtime.smack:smack-experimental:4.1.8'
-    compile 'org.igniterealtime.smack:smack-tcp:4.1.8'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.squareup.okhttp3:okhttp:3.4.2'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'io.realm:realm-android:0.85.0'
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+//    testCompile 'junit:junit:4.12'
+    api 'org.igniterealtime.smack:smack-android-extensions:4.1.8'
+    api 'org.igniterealtime.smack:smack-experimental:4.1.8'
+    api 'org.igniterealtime.smack:smack-tcp:4.1.8'
+    api 'com.google.code.gson:gson:2.8.0'
+    api 'com.squareup.okhttp3:okhttp:3.4.2'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.android.support:appcompat-v7:22.2.1'
+    api 'io.realm:realm-android:0.85.0'
 }
